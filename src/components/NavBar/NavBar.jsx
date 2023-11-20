@@ -1,15 +1,24 @@
+import { Link } from "react-router-dom";
 import { CartWidget } from "../CartWidget/CartWidget"
 
 export const NavBar = () => {
   return (
-    <nav className="d-flex justify-content-around p-4">
-        <img src="/img/Lokah.jpg" alt="" style={{width: "150px"}}/>
-        <div>
-        <button className="btn btn-success mx-2">Nosotros</button>
-        <button className="btn btn-success mx-2">Servicios</button>
-        <button className="btn btn-success mx-2">Experiencia</button>
+    <nav className="d-flex justify-content-around p-2">
+      <h4>Tienda Mia</h4>
+      <div>
+        <Link to="/">
+          <button className="btn btn-outline-dark mx-2">Home</button>
+        </Link>
+        <Link to="/category/calzados">
+          <button className="btn btn-outline-dark mx-2">Calzado</button>
+        </Link>
+        <Link to="/category/ropa">
+          <button className="btn btn-outline-dark mx-2">Indumentaria</button>
+        </Link>
       </div>
-      <CartWidget />
+      <Link to="/cart">
+        <CartWidget />
+      </Link>
     </nav>
-  )
-}
+  );
+};
