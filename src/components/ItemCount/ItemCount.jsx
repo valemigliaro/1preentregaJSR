@@ -1,8 +1,10 @@
 import { useState } from "react";
 
+
+
 export const ItemCount = ({ stock, initial = 1, onAdd }) => {
   const [count, setCount] = useState(initial);
-  
+
   const increment = () => {
     if (count < stock) {
       return setCount(count + 1);
