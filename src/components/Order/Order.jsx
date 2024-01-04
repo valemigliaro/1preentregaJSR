@@ -4,6 +4,9 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, doc, deleteDoc } from "firebase/firestore";
 import "firebase/firestore";
 import { firebaseConfig } from "../../config/firebaseConfig"
+import { animated, useSpring } from 'react-spring';
+import CreditCard from "../CreditCard/CreditCard";
+import Swal from 'sweetalert2';
 
 
 const app = initializeApp(firebaseConfig);
@@ -12,8 +15,6 @@ const db = getFirestore(app);
 const Order = () => {
  
   const { totalCartItems } = useContext(CartContext);
-
-  
   const [name, setName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
@@ -25,13 +26,17 @@ const Order = () => {
   const [email, setEmail] = useState("");
   const [confirmEmail, setConfirmEmail] = useState("");
   const [showCreditCard] = useState(true);
-
- 
   const addressRef = useRef(null);
   const postalCodeRef = useRef(null);
   const phoneNumberRef = useRef(null);
-
   const formattedTotal = totalCartItems.toFixed(2);
+
+  const cardAnimation = useSpring({
+    opacity: 1,            
+    transform: 'scale(1)', 
+    from: { opacity: 0, transform: 'scale(0.5)' }, 
+    config: { duration: 500 }, 
+  });
 
   
   const handleCardNumberChange = (e) => {
@@ -181,6 +186,7 @@ const Order = () => {
       const docRef = await addDoc(ordersCollectionRef, orderData);
       
       console.log("Orden creada con ID:", docRef.id);
+      console.log("Detalles de la orden:", orderData);
 
       const orderConfirmationMessage = `
         ¡Gracias por tu compra! <br>

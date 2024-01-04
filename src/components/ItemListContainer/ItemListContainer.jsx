@@ -46,5 +46,5 @@ export const ItemListContainer = () => {
     getProductById(" ");
   }, [category]);
 
-  return <>{isLoading ? <h2> Bancame un toquecin... </h2> : <ItemList products={products} />}</>;
+  return <>{isLoading ? <h2> Cargando Productos... </h2> : <ItemList products={products} />}</>;
 };

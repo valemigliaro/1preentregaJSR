@@ -10,7 +10,7 @@ export const CartWidget = () => {
     <Link to="/cart">
       <div className="d-flex" >
         <AiOutlineShoppingCart color="black" size={25} />
-        <p className="mx-2">1</p>
+      {/* <p className="mx-2">1</p> */}
         <span className="cart-count">({totalQuantity})</span>
       </div>
     </Link>

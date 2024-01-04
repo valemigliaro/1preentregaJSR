@@ -21,7 +21,7 @@ export const ItemCount = ({ stock, initial = 1, onAdd }) => {
 
 
   return (
-    <div className="d-flex flex-column col-2 justify-content-center align-content-center p-4">
+    <div className="d-flex justify-content-center align-content-center p-4">
       <div>
         <button className="btn btn-outline-secondary mx-3" onClick={increment}>
           +

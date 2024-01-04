@@ -4,7 +4,7 @@ import { CartWidget } from "../CartWidget/CartWidget"
 export const NavBar = () => {
   return (
     <nav className="d-flex justify-content-around p-2">
-      <h4>Tienda Mia</h4>
+      <h4>La Tiendita</h4>
       <div>
         <Link to="/">
           <button className="btn btn-outline-dark mx-2">Home</button>
@@ -12,13 +12,13 @@ export const NavBar = () => {
         <Link to="/category/calzados">
           <button className="btn btn-outline-dark mx-2">Calzado</button>
         </Link>
-        <Link to="/category/ropa">
+        <Link to="/category/indumentaria">
           <button className="btn btn-outline-dark mx-2">Indumentaria</button>
         </Link>
       </div>
-      <Link to="/cart">
+      {/* <Link to="/cart"> */}
         <CartWidget />
-      </Link>
+      {/* </Link> */}
     </nav>
   );
 };
